@@ -5,7 +5,7 @@ import tkinter as tk
 from tkinter import filedialog
 
 # Function to resize images with higher quality
-def resize_images(images_dir, output_size=(100, 100)):
+def resize_images(images_dir, output_size=(600, 600)):
     resized_images = []
     for filename in os.listdir(images_dir):
         if filename.endswith(".jpg") or filename.endswith(".png"):
@@ -42,4 +42,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

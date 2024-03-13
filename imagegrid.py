@@ -1,0 +1,44 @@
+import os
+from PIL import Image
+import matplotlib.pyplot as plt
+import tkinter as tk
+from tkinter import filedialog
+
+# Function to resize images
+def resize_images(images_dir, output_size=(100, 100)):
+    resized_images = []
+    for filename in os.listdir(images_dir):
+        if filename.endswith(".jpg") or filename.endswith(".png"):
+            img_path = os.path.join(images_dir, filename)
+            img = Image.open(img_path)
+            img_resized = img.resize(output_size)
+            resized_images.append(img_resized)
+    return resized_images
+
+# Function to plot images in a grid
+def plot_images(images, num_cols=5):
+    num_images = len(images)
+    num_rows = (num_images - 1) // num_cols + 1
+    plt.figure(figsize=(15, 15))
+    for i, img in enumerate(images):
+        plt.subplot(num_rows, num_cols, i + 1)
+        plt.imshow(img)
+        plt.axis('off')
+    plt.show()
+
+# Function to ask user for directory
+def ask_directory():
+    root = tk.Tk()
+    root.withdraw()  # Hide the main window
+    directory = filedialog.askdirectory(title="Select Directory Containing Images")
+    return directory
+
+# Main function
+def main():
+    images_dir = ask_directory()
+    if images_dir:
+        resized_images = resize_images(images_dir)
+        plot_images(resized_images)
+
+if __name__ == "__main__":
+    main()

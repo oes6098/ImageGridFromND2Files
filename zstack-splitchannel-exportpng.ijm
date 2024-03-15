@@ -40,15 +40,17 @@ for (i = 0; i < list.length; i++) {
         	
         	//Choose desired min/max values per each channel
         	if (j==1){
-        		setMinAndMax(0, 3000);
+        		//setMinAndMax(0, 25000); // Optional adjust min/max values
         		saveAs("png", output + (i+1) + splitImageName);
         	} else {
         		if (j==2){
-        			setMinAndMax(0, 32000);
+        			//setMinAndMax(0, 40000); // Optional adjust min/max values
         			saveAs("png", output + (i+1) + splitImageName);
+        			
         			//DAPI is 3rd channel, decide whether or not you want it
         		} else {
-        			setMinAndMax(0, 300);
+        			//setMinAndMax(0, 40000); // Optional adjust min/max values
+        			//saveAs("png", output + (i+1) + splitImageName);
         		}
         	}
         	

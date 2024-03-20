@@ -32,7 +32,7 @@ for (i = 0; i < list.length; i++) {
         selectWindow(imageName);
         run("Split Channels");
         
-        //For each channel, adjust brightness, then save as png
+        //For each  of 3 channels, adjust brightness, then save as png
         for (j=1; j<4; j++) {
         	splitImageName = "C" + j + "-" + imageName;
         	selectWindow(splitImageName);
